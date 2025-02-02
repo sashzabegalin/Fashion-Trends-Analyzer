@@ -1,52 +1,81 @@
-@import url('https://fonts.googleapis.com/css2?family=Didot:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 .main-title {
-    font-family: 'Didot', serif;
-    font-size: 3.2rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3.5rem;
     font-weight: 700;
-    color: #262730;
-    letter-spacing: 2px;
+    color: #0B3D91;
+    letter-spacing: 3px;
     margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(11, 61, 145, 0.1);
 }
 
 .subtitle {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 1.2rem;
     font-weight: 300;
     color: #666;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
 }
 
 .trend-card {
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1.8rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(11, 61, 145, 0.1);
     margin: 1rem 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trend-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(11, 61, 145, 0.15);
 }
 
 .metric-value {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.2rem;
     font-weight: 600;
     color: #0B3D91;
+    text-shadow: 0 0 20px rgba(11, 61, 145, 0.2);
 }
 
 .metric-label {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.9rem;
-    font-weight: 400;
+    font-weight: 500;
     color: #666;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 div[data-testid="stImage"] img {
-    border-radius: 10px;
-    transition: transform 0.3s ease;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 div[data-testid="stImage"] img:hover {
-    transform: scale(1.02);
+    transform: scale(1.03);
+    box-shadow: 0 12px 40px rgba(11, 61, 145, 0.15);
+}
+
+/* Customizing plotly charts container */
+.js-plotly-plot {
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Streamlit native elements customization */
+.stSelectbox, .stMultiSelect {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }

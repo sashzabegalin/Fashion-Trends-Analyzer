@@ -8,7 +8,8 @@ import pandas as pd
 st.set_page_config(
     page_title="Fashion Trend Analysis",
     page_icon="👗",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="collapsed"
 )
 
 # Load custom CSS
@@ -17,14 +18,14 @@ with open('.streamlit/style.css') as f:
 
 # Header section
 st.markdown('<h1 class="main-title">FASHION TREND ANALYSIS</h1>', unsafe_allow_html=True)
-st.markdown('<p class="subtitle">Discover emerging trends and insights in the fashion industry</p>', unsafe_allow_html=True)
+st.markdown('<p class="subtitle">Explore the Future of Fashion Through Data</p>', unsafe_allow_html=True)
 
 # Layout columns for header images
 col1, col2 = st.columns(2)
 with col1:
-    st.image("https://images.unsplash.com/photo-1571924849183-a68a3879348d", use_column_width=True)
+    st.image("https://images.unsplash.com/photo-1571924849183-a68a3879348d", use_container_width=True)
 with col2:
-    st.image("https://images.unsplash.com/photo-1543617648-16c14553d5e8", use_column_width=True)
+    st.image("https://images.unsplash.com/photo-1543617648-16c14553d5e8", use_container_width=True)
 
 # Generate and process data
 df = generate_mock_trend_data()
@@ -57,11 +58,21 @@ fig = px.line(filtered_df,
               color='trend',
               template='plotly_white')
 fig.update_layout(
-    plot_bgcolor='white',
-    paper_bgcolor='white',
-    font_family='Montserrat',
-    height=500
+    plot_bgcolor='rgba(255, 255, 255, 0.7)',
+    paper_bgcolor='rgba(255, 255, 255, 0)',
+    font_family='Space Grotesk',
+    height=500,
+    margin=dict(t=30, r=20, b=30, l=20),
+    hovermode='x unified',
+    legend=dict(
+        yanchor="top",
+        y=0.99,
+        xanchor="left",
+        x=0.01,
+        bgcolor='rgba(255, 255, 255, 0.7)'
+    )
 )
+fig.update_traces(line=dict(width=3))
 st.plotly_chart(fig, use_container_width=True)
 
 # Trend Cards Section
@@ -76,7 +87,7 @@ trend_images = [
 for idx, (col, img) in enumerate(zip(trend_cols, trend_images)):
     with col:
         st.markdown(f'<div class="trend-card">', unsafe_allow_html=True)
-        st.image(img, use_column_width=True)
+        st.image(img, use_container_width=True)
         trend_data = metrics_df.iloc[idx]
         st.markdown(f"#### {trend_data['trend']}")
         st.markdown(f"Engagement: {trend_data['avg_engagement']:,}")
@@ -90,14 +101,19 @@ fig_sentiment = px.bar(
     x='trend',
     y='avg_sentiment',
     color='avg_sentiment',
-    color_continuous_scale='Blues',
+    color_continuous_scale='blues',
     template='plotly_white'
 )
 fig_sentiment.update_layout(
-    plot_bgcolor='white',
-    paper_bgcolor='white',
-    font_family='Montserrat',
-    height=400
+    plot_bgcolor='rgba(255, 255, 255, 0.7)',
+    paper_bgcolor='rgba(255, 255, 255, 0)',
+    font_family='Space Grotesk',
+    height=400,
+    margin=dict(t=30, r=20, b=30, l=20),
+    hoverlabel=dict(
+        bgcolor='rgba(255, 255, 255, 0.7)',
+        font_size=14
+    )
 )
 st.plotly_chart(fig_sentiment, use_container_width=True)
 
