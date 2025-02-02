@@ -17,7 +17,11 @@ with open('.streamlit/style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 # Header
-st.markdown('<h1 class="main-title">Fashion Analytics Dashboard</h1>', unsafe_allow_html=True)
+st.markdown("""
+<div style="font-family: 'JetBrains Mono', monospace !important;">
+    <h1 class="main-title">Fashion Analytics Dashboard</h1>
+</div>
+""", unsafe_allow_html=True)
 
 # Generate and process data
 df = generate_mock_trend_data()
