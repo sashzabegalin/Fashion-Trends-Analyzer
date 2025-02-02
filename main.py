@@ -109,12 +109,13 @@ with perf_container:
         for j, col in enumerate(cols):
             if i + j < len(metrics_df):
                 trend_data = metrics_df.iloc[i + j]
+                growth_class = "positive" if trend_data["growth_rate"] > 0 else "negative"
                 with col:
                     st.markdown(f"""
                     <div class="trend-metric-item">
                         <div class="metric-label">{trend_data["trend"]}</div>
                         <div class="metric-value">{trend_data["avg_engagement"]:,}</div>
-                        <div class="trend-percentage">{'+' if trend_data["growth_rate"] > 0 else ''}{trend_data["growth_rate"]}%</div>
+                        <div class="trend-percentage {growth_class}">{'+' if trend_data["growth_rate"] > 0 else ''}{trend_data["growth_rate"]}%</div>
                     </div>
                     """, unsafe_allow_html=True)
 

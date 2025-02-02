@@ -141,31 +141,52 @@ div[data-testid="stVerticalBlock"] > div:has(div.element-container) {
 }
 
 .trend-metric-item {
-    padding: 1rem;
-    border-radius: 8px;
-    background: rgba(14, 17, 23, 0.7);
-    transition: transform 0.2s ease;
+    background: linear-gradient(135deg, rgba(14, 17, 23, 0.95) 0%, rgba(14, 17, 23, 0.7) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.8rem;
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .trend-metric-item:hover {
     transform: translateY(-2px);
-    background: rgba(14, 17, 23, 0.9);
+    border-color: rgba(0, 102, 255, 0.3);
 }
 
 .trend-metric-item .metric-label {
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.75rem;
 }
 
 .trend-metric-item .metric-value {
-    font-size: 1.8rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FFFFFF;
     margin: 0.5rem 0;
 }
 
 .trend-metric-item .trend-percentage {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 6px;
     display: inline-block;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    background: rgba(0, 102, 255, 0.15);
+    margin-top: 0.5rem;
+}
+
+.trend-metric-item .trend-percentage.positive {
+    color: #00FF94;
+    background: rgba(0, 255, 148, 0.15);
+}
+
+.trend-metric-item .trend-percentage.negative {
+    color: #FF3B3B;
+    background: rgba(255, 59, 59, 0.15);
 }
