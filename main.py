@@ -65,11 +65,7 @@ with col3:
 # Trend Evolution Chart
 trend_container = st.container()
 with trend_container:
-    st.markdown("""
-    <div class="metric-card">
-        <div class="section-title">Trend Evolution</div>
-    """, unsafe_allow_html=True)
-
+    st.markdown('<div class="section-title">Trend Evolution</div>', unsafe_allow_html=True)
     selected_trends = st.multiselect(
         "Select trends to compare",
         options=df['trend'].unique(),
@@ -102,16 +98,11 @@ with trend_container:
     fig.update_traces(line=dict(width=3))
 
     st.plotly_chart(fig, use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
 
 # Trend Performance Grid
 perf_container = st.container()
 with perf_container:
-    st.markdown("""
-    <div class="metric-card">
-        <div class="section-title">Trend Performance</div>
-        <div class="trend-metrics-grid">
-    """, unsafe_allow_html=True)
+    st.markdown('<div class="section-title">Trend Performance</div>', unsafe_allow_html=True)
 
     for i in range(0, len(metrics_df), 3):
         cols = st.columns(3)
@@ -127,18 +118,10 @@ with perf_container:
                     </div>
                     """, unsafe_allow_html=True)
 
-    st.markdown("""
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
 # Sentiment Analysis
 sentiment_container = st.container()
 with sentiment_container:
-    st.markdown("""
-    <div class="metric-card">
-        <div class="section-title">Sentiment Analysis</div>
-    """, unsafe_allow_html=True)
+    st.markdown('<div class="section-title">Sentiment Analysis</div>', unsafe_allow_html=True)
 
     fig_sentiment = go.Figure(data=[
         go.Bar(
@@ -162,4 +145,3 @@ with sentiment_container:
     )
 
     st.plotly_chart(fig_sentiment, use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
