@@ -107,9 +107,9 @@ with trend_container:
 # Trend Performance Grid
 perf_container = st.container()
 with perf_container:
+    st.markdown('<div class="section-title">Trend Performance</div>', unsafe_allow_html=True)
     st.markdown("""
     <div class="metric-card">
-        <div class="section-title">Trend Performance</div>
     """, unsafe_allow_html=True)
 
     for i in range(0, len(metrics_df), 3):
@@ -119,9 +119,11 @@ with perf_container:
                 trend_data = metrics_df.iloc[i + j]
                 with col:
                     st.markdown(f"""
-                    <div class="metric-label">{trend_data["trend"]}</div>
-                    <div class="metric-value">{trend_data["avg_engagement"]:,}</div>
-                    <div class="trend-percentage">+{trend_data["growth_rate"]}%</div>
+                    <div class="trend-metric">
+                        <div class="metric-label">{trend_data["trend"]}</div>
+                        <div class="metric-value">{trend_data["avg_engagement"]:,}</div>
+                        <div class="trend-percentage">{'+' if trend_data["growth_rate"] > 0 else ''}{trend_data["growth_rate"]}%</div>
+                    </div>
                     """, unsafe_allow_html=True)
 
     st.markdown("</div>", unsafe_allow_html=True)

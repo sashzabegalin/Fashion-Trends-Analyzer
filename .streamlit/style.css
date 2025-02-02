@@ -97,8 +97,9 @@
     font-size: 1.2rem;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 1rem;
+    margin: 1rem 0;
 }
+
 
 /* Hide Streamlit Elements */
 div[data-testid="stVerticalBlock"] > div:has(div.element-container) {
@@ -128,4 +129,14 @@ div[data-testid="stVerticalBlock"] > div:has(div.element-container) {
 
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 102, 255, 0.7);
+}
+
+/* Trend Performance Styling */
+.trend-metric {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.trend-metric:last-child {
+    border-bottom: none;
 }
