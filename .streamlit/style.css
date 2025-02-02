@@ -132,11 +132,39 @@ div[data-testid="stVerticalBlock"] > div:has(div.element-container) {
 }
 
 /* Trend Performance Styling */
-.trend-metric {
-    padding: 1rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.trend-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 0.5rem;
 }
 
-.trend-metric:last-child {
-    border-bottom: none;
+.trend-metric-item {
+    padding: 1rem;
+    border-radius: 8px;
+    background: rgba(14, 17, 23, 0.7);
+    transition: transform 0.2s ease;
+}
+
+.trend-metric-item:hover {
+    transform: translateY(-2px);
+    background: rgba(14, 17, 23, 0.9);
+}
+
+.trend-metric-item .metric-label {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.trend-metric-item .metric-value {
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+}
+
+.trend-metric-item .trend-percentage {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    background: rgba(0, 102, 255, 0.15);
 }
