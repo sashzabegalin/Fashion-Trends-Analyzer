@@ -63,7 +63,7 @@ with col3:
         """.format(metrics_df['avg_sentiment'].mean()), unsafe_allow_html=True)
 
 # Main content layout - Top section with two columns
-left_col, right_col = st.columns([2, 1])
+left_col, right_col = st.columns([3, 1])  # Adjusted ratio to make right column narrower
 
 # Left column - Trend Evolution
 with left_col:
@@ -91,7 +91,7 @@ with left_col:
         paper_bgcolor='rgba(0, 0, 0, 0)',
         font_family='Outfit',
         font_color='#FFFFFF',
-        height=400,
+        height=500,  # Increased height
         margin=dict(t=30, r=20, b=30, l=20),
         hovermode='x unified',
         legend=dict(
@@ -107,7 +107,7 @@ with left_col:
     st.plotly_chart(fig, use_container_width=True)
     st.markdown("</div></div>", unsafe_allow_html=True)
 
-# Right column - Trend Performance
+# Right column - Trend Performance (compact side panel)
 with right_col:
     st.markdown("""
     <div class="metric-card">
@@ -116,11 +116,12 @@ with right_col:
     """, unsafe_allow_html=True)
 
     for _, trend_data in metrics_df.iterrows():
+        growth_symbol = "+" if trend_data["growth_rate"] > 0 else ""
         st.markdown(f"""
         <div class="trend-item">
             <div class="metric-label">{trend_data["trend"]}</div>
             <div class="metric-value">{trend_data["avg_engagement"]:,}</div>
-            <div class="trend-percentage">+{trend_data["growth_rate"]}%</div>
+            <div class="trend-percentage">{growth_symbol}{trend_data["growth_rate"]}%</div>
         </div>
         """, unsafe_allow_html=True)
 

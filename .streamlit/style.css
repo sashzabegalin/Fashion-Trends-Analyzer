@@ -98,18 +98,35 @@
 .trend-grid {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
-    max-height: 400px;
+    gap: 0.8rem;
+    max-height: 600px;
     overflow-y: auto;
     padding-right: 0.5rem;
+    padding: 0.5rem;
 }
 
 .trend-item {
-    padding: 1rem;
+    padding: 0.8rem;
     background: rgba(14, 17, 23, 0.7);
-    border-radius: 12px;
+    border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     min-height: fit-content;
+}
+
+.trend-item .metric-label {
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.trend-item .metric-value {
+    font-size: 1.5rem;
+    margin: 0.2rem 0;
+}
+
+.trend-item .trend-percentage {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    margin-top: 0.3rem;
 }
 
 /* Hide Streamlit Elements */
