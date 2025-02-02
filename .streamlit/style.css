@@ -1,15 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
 
 /* Global Styles */
 .stApp {
     background-color: #000000;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
 }
 
 /* Main Title Styling */
 .main-title {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 2.8rem;
     font-weight: 700;
     color: #FFFFFF;
@@ -56,7 +55,7 @@
 }
 
 .metric-label {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 0.85rem;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.6);
@@ -93,14 +92,13 @@
 
 /* Section Headers */
 .section-title {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 2.8rem;
     font-weight: 700;
     color: rgba(255, 255, 255, 0.9);
     margin: 2rem 0 1.5rem 0;
     letter-spacing: -0.5px;
 }
-
 
 /* Hide Streamlit Elements */
 div[data-testid="stVerticalBlock"] > div:has(div.element-container) {
@@ -156,7 +154,7 @@ div[data-testid="stVerticalBlock"] > div:has(div.element-container) {
 }
 
 .trend-metric-item .metric-label {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 1.1rem;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.9);
