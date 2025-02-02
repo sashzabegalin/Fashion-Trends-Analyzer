@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Didot:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
+.main-title {
+    font-family: 'Didot', serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #262730;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+}
+
+.subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #666;
+    letter-spacing: 1px;
+}
+
+.trend-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    margin: 1rem 0;
+}
+
+.metric-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #0B3D91;
+}
+
+.metric-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+div[data-testid="stImage"] img {
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+div[data-testid="stImage"] img:hover {
+    transform: scale(1.02);
+}
