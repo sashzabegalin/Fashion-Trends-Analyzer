@@ -11,12 +11,16 @@ def generate_mock_trend_data():
         "Monochrome Sets",
         "Platform Shoes",
         "Metallic Fabrics",
-        "Gender-fluid Fashion"
+        "Gender-fluid Fashion",
+        "Digital Fashion NFTs",
+        "Bio-fabricated Materials",
+        "Smart Adaptive Clothing",
+        "Upcycled Vintage"
     ]
-    
+
     dates = pd.date_range(start='2023-01-01', end='2023-12-31', freq='D')
     data = []
-    
+
     for trend in trends:
         base = np.random.randint(500, 1500)
         for date in dates:
@@ -28,14 +32,14 @@ def generate_mock_trend_data():
                 'engagement': int(max(0, engagement)),
                 'sentiment': round(sentiment, 2)
             })
-    
+
     return pd.DataFrame(data)
 
 def calculate_trend_metrics(df):
     """Calculate key metrics for trends"""
     latest_date = df['date'].max()
     last_30_days = df[df['date'] >= latest_date - pd.Timedelta(days=30)]
-    
+
     metrics = []
     for trend in df['trend'].unique():
         trend_data = last_30_days[last_30_days['trend'] == trend]
@@ -45,5 +49,5 @@ def calculate_trend_metrics(df):
             'avg_sentiment': round(trend_data['sentiment'].mean(), 2),
             'growth_rate': round((trend_data['engagement'].iloc[-1] / trend_data['engagement'].iloc[0] - 1) * 100, 1)
         })
-    
+
     return pd.DataFrame(metrics)
