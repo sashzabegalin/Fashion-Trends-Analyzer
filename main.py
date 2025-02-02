@@ -68,7 +68,7 @@ with trend_container:
     st.markdown("""
     <div class="metric-card">
         <div class="section-title">Trend Evolution</div>
-        """, unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
     selected_trends = st.multiselect(
         "Select trends to compare",
@@ -110,7 +110,7 @@ with perf_container:
     st.markdown("""
     <div class="metric-card">
         <div class="section-title">Trend Performance</div>
-        """, unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
     for i in range(0, len(metrics_df), 3):
         cols = st.columns(3)
@@ -132,7 +132,7 @@ with sentiment_container:
     st.markdown("""
     <div class="metric-card">
         <div class="section-title">Sentiment Analysis</div>
-        """, unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
     fig_sentiment = go.Figure(data=[
         go.Bar(
