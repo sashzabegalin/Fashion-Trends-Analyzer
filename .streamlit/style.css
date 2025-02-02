@@ -20,6 +20,11 @@
     letter-spacing: -0.5px;
 }
 
+/* Section Containers */
+.section-container {
+    margin: 1.5rem 0;
+}
+
 /* Metric Card Styling */
 .metric-card {
     background: linear-gradient(135deg, rgba(14, 17, 23, 0.95) 0%, rgba(14, 17, 23, 0.7) 100%);
@@ -69,11 +74,6 @@
     margin-top: 0.5rem;
 }
 
-/* Section Containers */
-.section-container {
-    margin: 1.5rem 0;
-}
-
 /* Chart Container */
 .chart-container {
     margin: 1rem 0;
@@ -97,16 +97,15 @@
     margin-bottom: 1rem;
 }
 
-/* Hide default Streamlit headers */
-.css-1dp5vir {
-    display: none;
+/* Hide Streamlit Elements */
+div[data-testid="stVerticalBlock"] > div:has(div.element-container) {
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-/* Streamlit Element Customization */
-.stSelectbox, .stMultiSelect {
-    background: rgba(14, 17, 23, 0.7);
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+.element-container {
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 /* Custom Scrollbar */
@@ -126,16 +125,4 @@
 
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 102, 255, 0.7);
-}
-
-/* Data Values */
-div[data-testid="stMetricValue"] {
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 700;
-}
-
-/* Metric Delta */
-div[data-testid="stMetricDelta"] {
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 600;
 }
