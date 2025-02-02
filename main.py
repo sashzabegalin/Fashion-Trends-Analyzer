@@ -24,6 +24,7 @@ df = generate_mock_trend_data()
 metrics_df = calculate_trend_metrics(df)
 
 # Top metrics section
+st.markdown('<div class="section-container">', unsafe_allow_html=True)
 col1, col2, col3 = st.columns(3)
 
 with col1:
@@ -47,10 +48,13 @@ with col3:
     st.markdown(f'<div class="metric-value">{avg_sentiment:.2f}</div>', unsafe_allow_html=True)
     st.markdown('<div class="trend-percentage">+5.8%</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
 
 # Trend Evolution Chart
+st.markdown('<div class="section-container">', unsafe_allow_html=True)
 st.markdown('<div class="metric-card">', unsafe_allow_html=True)
 st.markdown('<div class="section-title">Trend Evolution</div>', unsafe_allow_html=True)
+
 selected_trends = st.multiselect(
     "Select trends to compare",
     options=df['trend'].unique(),
@@ -81,28 +85,36 @@ fig.update_layout(
     )
 )
 fig.update_traces(line=dict(width=3))
+
+st.markdown('<div class="chart-container">', unsafe_allow_html=True)
 st.plotly_chart(fig, use_container_width=True)
+st.markdown('</div>', unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Trend Performance Grid
+st.markdown('<div class="section-container">', unsafe_allow_html=True)
 st.markdown('<div class="metric-card">', unsafe_allow_html=True)
 st.markdown('<div class="section-title">Trend Performance</div>', unsafe_allow_html=True)
+
 for i in range(0, len(metrics_df), 3):
     cols = st.columns(3)
     for j, col in enumerate(cols):
         if i + j < len(metrics_df):
             trend_data = metrics_df.iloc[i + j]
             with col:
-                st.markdown('<div class="metric-card">', unsafe_allow_html=True)
                 st.markdown(f'<div class="metric-label">{trend_data["trend"]}</div>', unsafe_allow_html=True)
                 st.markdown(f'<div class="metric-value">{trend_data["avg_engagement"]:,}</div>', unsafe_allow_html=True)
                 st.markdown(f'<div class="trend-percentage">+{trend_data["growth_rate"]}%</div>', unsafe_allow_html=True)
-                st.markdown('</div>', unsafe_allow_html=True)
+
+st.markdown('</div>', unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Sentiment Analysis
+st.markdown('<div class="section-container">', unsafe_allow_html=True)
 st.markdown('<div class="metric-card">', unsafe_allow_html=True)
 st.markdown('<div class="section-title">Sentiment Analysis</div>', unsafe_allow_html=True)
+
 fig_sentiment = go.Figure(data=[
     go.Bar(
         x=metrics_df['trend'],
@@ -124,5 +136,8 @@ fig_sentiment.update_layout(
     yaxis=dict(showgrid=True, gridcolor='rgba(255, 255, 255, 0.1)')
 )
 
+st.markdown('<div class="chart-container">', unsafe_allow_html=True)
 st.plotly_chart(fig_sentiment, use_container_width=True)
+st.markdown('</div>', unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)

@@ -69,13 +69,23 @@
     margin-top: 0.5rem;
 }
 
+/* Section Containers */
+.section-container {
+    margin: 1.5rem 0;
+}
+
+/* Chart Container */
+.chart-container {
+    margin: 1rem 0;
+    padding: 1rem;
+}
+
 /* Chart Customization */
 .js-plotly-plot {
-    background: linear-gradient(135deg, rgba(14, 17, 23, 0.95) 0%, rgba(14, 17, 23, 0.7) 100%);
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1.5rem;
-    margin: 1rem 0;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
 }
 
 /* Section Headers */
