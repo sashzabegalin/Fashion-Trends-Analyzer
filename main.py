@@ -63,7 +63,7 @@ fig = px.line(filtered_df,
 fig.update_layout(
     plot_bgcolor='rgba(14, 17, 23, 0.7)',
     paper_bgcolor='rgba(0, 0, 0, 0)',
-    font_family='Inter',
+    font_family='Outfit',
     font_color='#FFFFFF',
     height=400,
     margin=dict(t=30, r=20, b=30, l=20),
@@ -93,7 +93,7 @@ for i in range(0, len(metrics_df), 3):
                 st.markdown(f'<div class="trend-percentage">+{trend_data["growth_rate"]}%</div>', unsafe_allow_html=True)
                 st.markdown('</div>', unsafe_allow_html=True)
 
-# Sentiment Distribution
+# Sentiment Analysis
 st.markdown("### Sentiment Analysis")
 fig_sentiment = go.Figure(data=[
     go.Bar(
@@ -107,7 +107,7 @@ fig_sentiment = go.Figure(data=[
 fig_sentiment.update_layout(
     plot_bgcolor='rgba(14, 17, 23, 0.7)',
     paper_bgcolor='rgba(0, 0, 0, 0)',
-    font_family='Inter',
+    font_family='Outfit',
     font_color='#FFFFFF',
     height=400,
     margin=dict(t=30, r=20, b=30, l=20),
