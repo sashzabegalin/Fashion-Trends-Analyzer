@@ -143,8 +143,6 @@ div[data-testid="stVerticalBlock"] > div:has(div.element-container) {
     gap: 1.5rem;
     padding: 1rem;
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .trend-metric-item {
@@ -156,7 +154,6 @@ div[data-testid="stVerticalBlock"] > div:has(div.element-container) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
 }
 
 .trend-metric-item:hover {
