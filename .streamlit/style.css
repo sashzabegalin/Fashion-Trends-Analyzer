@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+/* Remove orange line from the top */
+header[data-testid="stHeader"] {
+    display: none;
+}
 
 /* Global Styles */
 .stApp {
@@ -6,7 +9,6 @@
     font-family: 'JetBrains Mono', monospace;
 }
 
-/* Main Title Styling */
 .main-title {
     font-family: 'JetBrains Mono', monospace;
     font-size: 2.8rem;
