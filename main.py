@@ -16,12 +16,12 @@ st.set_page_config(
 with open('.streamlit/style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
-# Header
-st.markdown('<h1 class="main-title">Fashion Analytics Dashboard</h1>', unsafe_allow_html=True)
-
 # Generate and process data
 df = generate_mock_trend_data()
 metrics_df = calculate_trend_metrics(df)
+
+# Header
+st.markdown('<h1 class="main-title">Fashion Analytics Dashboard</h1>', unsafe_allow_html=True)
 
 # Create columns for the top metrics
 col1, col2, col3 = st.columns(3)
@@ -62,12 +62,15 @@ with col3:
         </div>
         """.format(metrics_df['avg_sentiment'].mean()), unsafe_allow_html=True)
 
-# Trend Evolution Chart
-trend_container = st.container()
-with trend_container:
+# Create main content columns
+left_col, right_col = st.columns([2, 1])
+
+# Left column - Trend Evolution
+with left_col:
     st.markdown("""
     <div class="metric-card">
         <div class="section-title">Trend Evolution</div>
+        <div class="chart-container">
     """, unsafe_allow_html=True)
 
     selected_trends = st.multiselect(
@@ -102,36 +105,33 @@ with trend_container:
     fig.update_traces(line=dict(width=3))
 
     st.plotly_chart(fig, use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("</div></div>", unsafe_allow_html=True)
 
-# Trend Performance Grid
-perf_container = st.container()
-with perf_container:
+# Right column - Trend Performance and Sentiment Analysis
+with right_col:
+    # Trend Performance
     st.markdown("""
     <div class="metric-card">
         <div class="section-title">Trend Performance</div>
+        <div class="trend-grid">
     """, unsafe_allow_html=True)
 
-    for i in range(0, len(metrics_df), 3):
-        cols = st.columns(3)
-        for j, col in enumerate(cols):
-            if i + j < len(metrics_df):
-                trend_data = metrics_df.iloc[i + j]
-                with col:
-                    st.markdown(f"""
-                    <div class="metric-label">{trend_data["trend"]}</div>
-                    <div class="metric-value">{trend_data["avg_engagement"]:,}</div>
-                    <div class="trend-percentage">+{trend_data["growth_rate"]}%</div>
-                    """, unsafe_allow_html=True)
+    for _, trend_data in metrics_df.iterrows():
+        st.markdown(f"""
+        <div class="trend-item">
+            <div class="metric-label">{trend_data["trend"]}</div>
+            <div class="metric-value">{trend_data["avg_engagement"]:,}</div>
+            <div class="trend-percentage">+{trend_data["growth_rate"]}%</div>
+        </div>
+        """, unsafe_allow_html=True)
 
-    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("</div></div>", unsafe_allow_html=True)
 
-# Sentiment Analysis
-sentiment_container = st.container()
-with sentiment_container:
+    # Sentiment Analysis
     st.markdown("""
     <div class="metric-card">
         <div class="section-title">Sentiment Analysis</div>
+        <div class="chart-container">
     """, unsafe_allow_html=True)
 
     fig_sentiment = go.Figure(data=[
@@ -148,7 +148,7 @@ with sentiment_container:
         paper_bgcolor='rgba(0, 0, 0, 0)',
         font_family='Outfit',
         font_color='#FFFFFF',
-        height=400,
+        height=300,
         margin=dict(t=30, r=20, b=30, l=20),
         showlegend=False,
         xaxis=dict(showgrid=False),
@@ -156,4 +156,4 @@ with sentiment_container:
     )
 
     st.plotly_chart(fig_sentiment, use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("</div></div>", unsafe_allow_html=True)

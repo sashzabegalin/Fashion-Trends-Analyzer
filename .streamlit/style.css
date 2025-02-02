@@ -20,13 +20,6 @@
     letter-spacing: -0.5px;
 }
 
-/* Bento Grid Layout */
-.bento-grid {
-    display: grid;
-    gap: 1rem;
-    padding: 1rem;
-}
-
 /* Metric Card Styling */
 .metric-card {
     background: linear-gradient(135deg, rgba(14, 17, 23, 0.95) 0%, rgba(14, 17, 23, 0.7) 100%);
@@ -98,6 +91,20 @@
     font-weight: 600;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 1rem;
+}
+
+/* Trend Grid */
+.trend-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.trend-item {
+    padding: 1rem;
+    background: rgba(14, 17, 23, 0.7);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Hide Streamlit Elements */
