@@ -108,20 +108,18 @@ perf_container = st.container()
 with perf_container:
     st.markdown('<div class="section-title">Trend Performance</div>', unsafe_allow_html=True)
 
-    for i in range(0, len(metrics_df), 3):
-        cols = st.columns(3)
-        for j, col in enumerate(cols):
-            if i + j < len(metrics_df):
-                trend_data = metrics_df.iloc[i + j]
-                growth_class = "positive" if trend_data["growth_rate"] > 0 else "negative"
-                with col:
-                    st.markdown(f"""
-                    <div class="trend-metric-item">
-                        <div class="metric-label">{trend_data["trend"]}</div>
-                        <div class="metric-value">{trend_data["avg_engagement"]:,}</div>
-                        <div class="trend-percentage {growth_class}">{'+' if trend_data["growth_rate"] > 0 else ''}{trend_data["growth_rate"]}%</div>
-                    </div>
-                    """, unsafe_allow_html=True)
+    st.markdown('<div class="trend-metrics-grid">', unsafe_allow_html=True)
+    for i in range(min(9, len(metrics_df))):  # Limit to 9 items for 3x3 grid
+        trend_data = metrics_df.iloc[i]
+        growth_class = "positive" if trend_data["growth_rate"] > 0 else "negative"
+        st.markdown(f"""
+            <div class="trend-metric-item">
+                <div class="metric-label">{trend_data["trend"]}</div>
+                <div class="metric-value">{trend_data["avg_engagement"]:,}</div>
+                <div class="trend-percentage {growth_class}">{'+' if trend_data["growth_rate"] > 0 else ''}{trend_data["growth_rate"]}%</div>
+            </div>
+        """, unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
 # Sentiment Analysis
 sentiment_container = st.container()
