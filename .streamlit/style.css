@@ -49,7 +49,9 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #FFFFFF;
+    background: linear-gradient(135deg, #FFFFFF 0%, #0066FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin: 0.5rem 0;
     letter-spacing: -1px;
 }
@@ -58,7 +60,9 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.85rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.6);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.6) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 0.5rem;
@@ -68,12 +72,14 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.9rem;
     font-weight: 600;
-    color: #0066FF;
-    background: rgba(0, 102, 255, 0.15);
+    background: linear-gradient(135deg, #0066FF 0%, #00A3FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     padding: 4px 12px;
     border-radius: 6px;
     display: inline-block;
     margin-top: 0.5rem;
+    border: 1px solid rgba(0, 102, 255, 0.3);
 }
 
 /* Chart Container */
@@ -95,7 +101,9 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 1.8rem;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.9);
+    background: linear-gradient(135deg, #FFFFFF 0%, #0066FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin: 2rem 0 1.5rem 0;
     letter-spacing: -0.5px;
 }
@@ -157,7 +165,9 @@ div[data-testid="stVerticalBlock"] > div:has(div.element-container) {
     font-family: 'JetBrains Mono', monospace;
     font-size: 1.1rem;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.9);
+    background: linear-gradient(135deg, #FFFFFF 0%, #0066FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 0.75rem;
 }
 
@@ -165,7 +175,9 @@ div[data-testid="stVerticalBlock"] > div:has(div.element-container) {
     font-family: 'JetBrains Mono', monospace;
     font-size: 2rem;
     font-weight: 700;
-    color: #FFFFFF;
+    background: linear-gradient(135deg, #FFFFFF 0%, #0066FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin: 0.5rem 0;
 }
 
@@ -180,11 +192,15 @@ div[data-testid="stVerticalBlock"] > div:has(div.element-container) {
 }
 
 .trend-metric-item .trend-percentage.positive {
-    color: #00FF94;
-    background: rgba(0, 255, 148, 0.15);
+    background: linear-gradient(135deg, #00FF94 0%, #00FFB2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: 1px solid rgba(0, 255, 148, 0.3);
 }
 
 .trend-metric-item .trend-percentage.negative {
-    color: #FF3B3B;
-    background: rgba(255, 59, 59, 0.15);
+    background: linear-gradient(135deg, #FF3B3B 0%, #FF5C5C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: 1px solid rgba(255, 59, 59, 0.3);
 }
