@@ -79,13 +79,17 @@
 }
 
 /* Section Headers */
-h3 {
+.section-title {
     font-family: 'Outfit', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    color: #FFFFFF;
-    margin: 2rem 0 1rem 0;
-    opacity: 0.9;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+}
+
+/* Hide default Streamlit headers */
+.css-1dp5vir {
+    display: none;
 }
 
 /* Streamlit Element Customization */
