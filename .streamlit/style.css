@@ -23,7 +23,7 @@
 /* Bento Grid Layout */
 .bento-grid {
     display: grid;
-    gap: 1rem;
+    gap: 1.5rem;
     padding: 1rem;
 }
 
@@ -35,8 +35,7 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     padding: 1.8rem;
-    height: 100%;
-    width: 100%;
+    margin-bottom: 1.5rem;
     transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
@@ -97,7 +96,7 @@
     font-size: 1.2rem;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.9);
-    margin: 1rem 0;
+    margin-bottom: 1.5rem;
 }
 
 
