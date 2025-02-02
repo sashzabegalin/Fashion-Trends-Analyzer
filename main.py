@@ -23,8 +23,7 @@ st.markdown('<h1 class="main-title">Fashion Analytics Dashboard</h1>', unsafe_al
 df = generate_mock_trend_data()
 metrics_df = calculate_trend_metrics(df)
 
-# Metrics Overview Section
-st.markdown('<div class="section-container">', unsafe_allow_html=True)
+# Create columns for the top metrics
 col1, col2, col3 = st.columns(3)
 
 # Column 1
@@ -62,10 +61,8 @@ with col3:
             <div class="trend-percentage">+5.8%</div>
         </div>
         """.format(metrics_df['avg_sentiment'].mean()), unsafe_allow_html=True)
-st.markdown('</div>', unsafe_allow_html=True)
 
 # Trend Evolution Chart
-st.markdown('<div class="section-container">', unsafe_allow_html=True)
 trend_container = st.container()
 with trend_container:
     st.markdown('<div class="section-title">Trend Evolution</div>', unsafe_allow_html=True)
@@ -101,10 +98,8 @@ with trend_container:
     fig.update_traces(line=dict(width=3))
 
     st.plotly_chart(fig, use_container_width=True)
-st.markdown('</div>', unsafe_allow_html=True)
 
 # Trend Performance Grid
-st.markdown('<div class="section-container">', unsafe_allow_html=True)
 perf_container = st.container()
 with perf_container:
     st.markdown('<div class="section-title">Trend Performance</div>', unsafe_allow_html=True)
@@ -122,10 +117,8 @@ with perf_container:
                         <div class="trend-percentage">{'+' if trend_data["growth_rate"] > 0 else ''}{trend_data["growth_rate"]}%</div>
                     </div>
                     """, unsafe_allow_html=True)
-st.markdown('</div>', unsafe_allow_html=True)
 
 # Sentiment Analysis
-st.markdown('<div class="section-container">', unsafe_allow_html=True)
 sentiment_container = st.container()
 with sentiment_container:
     st.markdown('<div class="section-title">Sentiment Analysis</div>', unsafe_allow_html=True)
@@ -152,4 +145,3 @@ with sentiment_container:
     )
 
     st.plotly_chart(fig_sentiment, use_container_width=True)
-st.markdown('</div>', unsafe_allow_html=True)
